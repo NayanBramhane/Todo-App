@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import { useReducer } from "react";
+/*import { useReducer } from "react";
 
 import "./App.css";
 import AddTodo from "./AddTodo";
@@ -15,7 +15,7 @@ const initialTodos = [
   { id: 3, text: "Learn React", done: false },
 ];
 function App() {
-// using useState
+  // using useState
   // const [todos, setTodos] = useState(initialTodos);
 
   // function handleAddTodo(text) {
@@ -29,17 +29,17 @@ function App() {
   //   ]);
   // }
 
-// using useReducer
-    const [todos, dispatch] = useReducer(todosReducer, initialTodos);
-    function handleAddTodo(text) {
-      dispatch({
-        type: "add",
-        id: nextId++,
-        text,
-      });
-    }
+  // using useReducer
+  const [todos, dispatch] = useReducer(todosReducer, initialTodos);
+  function handleAddTodo(text) {
+    dispatch({
+      type: "add",
+      id: nextId++,
+      text,
+    });
+  }
 
-function handleTodoChange(updatedTodo) {
+  function handleTodoChange(updatedTodo) {
     dispatch({
       type: "change",
       todo: updatedTodo,
@@ -56,8 +56,29 @@ function handleTodoChange(updatedTodo) {
     <>
       <h2>Todos</h2>
       <AddTodo onAddTodo={handleAddTodo} />
-      <TodoList todos={todos} onTodoChange={handleTodoChange} onTodoDelete={handleTodoDelete} />
+      <TodoList
+        todos={todos}
+        onTodoChange={handleTodoChange}
+        onTodoDelete={handleTodoDelete}
+      />
     </>
+  );
+}
+*/
+
+import AddTodo from "./AddTodo";
+import CompletedTodos from "./CompletedTodos";
+import TodoList from "./TodoList";
+import TodosProvider from "./TodosContext";
+
+function App() {
+  return (
+    <TodosProvider>
+      <h2>Todos</h2>
+      <AddTodo />
+      <TodoList />
+      <CompletedTodos />
+    </TodosProvider>
   );
 }
 
